@@ -1,24 +1,48 @@
-# README
+# アプリケーション名
+article-growth
+# アプリケーションの概要
+記事を書く毎に理解度がアップしてコメント機能を活かす事により良いアウトプットを行い仕事を効率化を目的としてます
+# URL
+未完成
+# テスト用アカウント
+・Basic認証パスワード:
+<br>・Basic認証ID:
+<br>・メールアドレス:
+<br>・パスワード:
+# 利用方法
+## 記事育成アプリ
+1.トップページのヘッダーからユーザーの新規登録をします
+<br>2.記事投稿ボタンより記事のタイトル,内容,画像(あってもなくてもいいよう保存できるようにします)を投稿or下書き保存の2つのボタンを表示させ分岐を実装します
+<br>3-1.投稿された記事は全体に公開され登録ユーザーはコメントを行うことができます
+<br>3-2.下書き記事は非公開でマイページで自分のみ確認できて投稿(公開)を編集ページor詳細ページにて選択できます(記事作成者のみ)
+<br>4.記事検索機能によりタイトルで曖昧な文字を打ってもその文字さえ入っていればその文字が入っている記事を全て表示します
+<br>5.タグ機能により、記事にタグをつけた場合記事一覧でタグソートでそのタグをつけているものだけを表示します
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーションを作成しようとした背景
+自分が新人の時に、仕事でどのように行っていくかのマニュアル自体がなかったためある程度やり方と理解が難しそうな部分を箇条書きにして、仕事の詳細を整理したいと思ったからです。
+<br>この作業を行い、実際に上司と相談してコメント機能を活用して仕事内容を振り返る事により効率よく再現性の高い仕事を行いたいなと思いこのアプリを作成しました。
 
-Things you may want to cover:
+# 洗い出した要件
+実際に洗い出ししたシートを乗せる
 
-* Ruby version
+# 実装した機能についての画像やGIFおよびその説明
+完成したら都度掲載
 
-* System dependencies
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/8c8b1c43bb3173f156b309a59dce8038.gif)](https://gyazo.com/8c8b1c43bb3173f156b309a59dce8038)
 
-* Configuration
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/39e2539370f74cd4e471b6878dafa899.gif)](https://gyazo.com/39e2539370f74cd4e471b6878dafa899)
 
-* Database creation
+# 開発環境
+・フロントエンド
+<br>・Ruby・
+<br>・インフラ
+<br>・テスト
+<br>・VScode 
 
-* Database initialization
+# ローカルでの動作方法
+作成したら随時記述
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 工夫したポイント
+作成時に、この作業に手間取ったことや理解してきちんと言葉にして実装して重要だった機能についてここに記述していきます。
