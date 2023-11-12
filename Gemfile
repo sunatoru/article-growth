@@ -68,7 +68,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'rspec-rails', '~> 4.0.0'
+
 end
 
 group :test do
@@ -76,6 +76,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+    # テストを実装するためにgemを導入
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 
@@ -87,3 +91,5 @@ gem 'sassc-rails'
 gem 'mini_racer'
 # 日本語化するためにgemを導入
 gem 'rails-i18n'
+
+gem 'pry-rails'
