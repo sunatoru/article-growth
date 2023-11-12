@@ -85,4 +85,5 @@ end
 
 gem 'sassc-rails'
 gem 'mini_racer'
+# 日本語化するためにgemを導入
 gem 'rails-i18n'
