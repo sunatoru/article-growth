@@ -1,0 +1,48 @@
+$primary-color: #3498db; // プライマリカラー
+$text-color: #333; // テキストカラー
+$background-color: #ecf0f1; // バックグラウンドカラー
+$border-color: #bdc3c7; // ボーダーカラー
+$article-background: #fff; // 記事ボックスの背景色
+
+// _styles
+
+.article-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh; /* 画面の高さいっぱいに広がるように */
+  background-color: $background-color; /* 全体の背景色を設定 */
+  padding-top: 20px;
+ 
+} 
+.article-box{
+  width: 45%;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: $article-background;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .article-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #000;
+  }
+
+  .article-name {
+    color: #bdc3c7;
+    display: block;
+  }
+  .update-time {
+    font-size: 1.0em; // 適切なサイズに調整
+    color: #888; // 適切な色に調整
+  }
+}
+
+
+
+
+
