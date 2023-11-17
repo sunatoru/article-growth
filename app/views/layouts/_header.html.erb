@@ -1,7 +1,7 @@
 <div class="header"> 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Article-growth</a>
+    <%= link_to 'Article-growth', root_path, class: 'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,11 +15,14 @@
             Menu
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">myページ</a></li>
+          <% if user_signed_in? %> <!-- ログイン中の場合 -->
             <li><a class="dropdown-item" href="#">新規投稿</a></li>
-            <li><a class="dropdown-item" href="#">ログアウト</a></li>
-            <li><a class="dropdown-item" href="#">ログイン</a></li>
-            <li><a class="dropdown-item" href="#">新規登録</a></li>
+            <li><a class="dropdown-item" href="#">myページ</a></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
+            <%else%> <!-- 未登録の場合 -->
+            <li><%= link_to '新規登録', new_user_registration_path, class: 'dropdown-item' %></li>
+            <li><%= link_to 'ログイン', new_user_session_path, class: 'dropdown-item' %></li>
+            <%end%>
           </ul>
         </li>
       </ul>
