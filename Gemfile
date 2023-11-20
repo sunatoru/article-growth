@@ -93,3 +93,5 @@ gem 'mini_racer'
 gem 'rails-i18n'
 
 gem 'pry-rails'
+# ページネーションのためのgem
+gem 'kaminari'
