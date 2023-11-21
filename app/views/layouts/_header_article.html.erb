@@ -1,0 +1,49 @@
+<div class="header"> 
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <%= link_to 'Article-growth', root_path, class: 'navbar-brand' %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="">Top</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Menu
+            </a>
+            <ul class="dropdown-menu">
+              <% if user_signed_in? %> <!-- ログイン中の場合 -->
+                <li><%= link_to '新規投稿', new_article_path, class: 'dropdown-item' %></li>
+                <li><a class="dropdown-item" href="#">myページ</a></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
+              <% else %> <!-- 未登録の場合 -->
+                <li><%= link_to '新規登録', new_user_registration_path, class: 'dropdown-item' %></li>
+                <li><%= link_to 'ログイン', new_user_session_path, class: 'dropdown-item' %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-flex"> <!-- 右寄せのための Flex コンテナを追加 -->
+          <!-- ボタンで記事投稿と下書き記事を切り替える -->
+          <%= link_to '公開設定', new_article_path, class: 'btn btn-success me-2' %>
+          <%= link_to '下書き保存', "#", class: 'btn btn-secondary ms-2 me-2' %>
+          <!-- ユーザー名とプルダウンメニューを表示 -->
+          <% if user_signed_in? %>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.name %>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><%= link_to 'myページ', "#", class: 'dropdown-item' %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
