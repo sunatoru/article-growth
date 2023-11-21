@@ -16,7 +16,7 @@
           </a>
           <ul class="dropdown-menu">
           <% if user_signed_in? %> <!-- ログイン中の場合 -->
-            <li><a class="dropdown-item" href="#">新規投稿</a></li>
+            <li><%= link_to '新規投稿', new_article_path, class: 'dropdown-item' %></li>
             <li><a class="dropdown-item" href="#">myページ</a></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
             <%else%> <!-- 未登録の場合 -->

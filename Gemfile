@@ -95,3 +95,6 @@ gem 'rails-i18n'
 gem 'pry-rails'
 # ページネーションのためのgem
 gem 'kaminari'
+#画像加工のためのgem
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
