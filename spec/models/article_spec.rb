@@ -16,19 +16,19 @@ RSpec.describe Article, type: :model do
     end
     context '記事が投稿できない場合' do
       it 'titleがない場合記事が投稿できない' do
-        @article.title = ""
+        @article.title = ''
         @article.valid?
-        expect(@article.errors.full_messages).to include "Titleを入力してください"
+        expect(@article.errors.full_messages).to include 'Titleを入力してください'
       end
       it 'contentがない場合記事が投稿できない' do
-        @article.content = ""
+        @article.content = ''
         @article.valid?
-        expect(@article.errors.full_messages).to include "Contentを入力してください"
+        expect(@article.errors.full_messages).to include 'Contentを入力してください'
       end
       it 'userが紐づいていない場合記事が投稿できない' do
         @article.user = nil
         @article.valid?
-        expect(@article.errors.full_messages).to include "Userを入力してください"
+        expect(@article.errors.full_messages).to include 'Userを入力してください'
       end
     end
   end

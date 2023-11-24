@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  enum status: { published: 0 }
+  enum status: { published: 0, draft: 1 }
 
   validates :title, presence: true
   validates :content, presence: true
@@ -12,6 +12,6 @@ class Article < ApplicationRecord
   private
 
   def image_attached?
-    errors.add(:image, "must be attached") unless image.attached?
+    errors.add(:image, 'must be attached') unless image.attached?
   end
 end
