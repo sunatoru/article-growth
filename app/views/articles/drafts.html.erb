@@ -1,0 +1,17 @@
+<%= render "layouts/header_article" %>
+<div class="article-info">
+<% @drafts.each do |article| %> 
+  <div class="article-box">
+    <p class="article-name">
+      <%= article.user.name %>
+    </p>
+    <p class="article-title">
+      <%= article.title %>
+    </p> 
+    <p class="update-time">
+      <%= article.updated_at.strftime('%Y-%m-%d') %>
+    </p>
+  </div>
+<% end %>
+<%= paginate @drafts %>
+</div>

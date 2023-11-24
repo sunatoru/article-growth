@@ -17,8 +17,7 @@
           <ul class="dropdown-menu">
           <% if user_signed_in? %> <!-- ログイン中の場合 -->
             <li><%= link_to '新規投稿', new_article_path, class: 'dropdown-item' %></li>
-            <li><a class="dropdown-item" href="#">myページ</a></li>
-            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
+            <li><%= link_to '下書き一覧', drafts_articles_path, class: 'dropdown-item' %></li>
             <%else%> <!-- 未登録の場合 -->
             <li><%= link_to '新規登録', new_user_registration_path, class: 'dropdown-item' %></li>
             <li><%= link_to 'ログイン', new_user_session_path, class: 'dropdown-item' %></li>
@@ -26,10 +25,25 @@
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+<div class="d-flex justify-content-end align-items-center">
+  <form class="me-2" role="search">
+    <div class="d-flex">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </div>
+  </form>
+
+  <% if user_signed_in? %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= current_user.name %>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
     </div>
   </div>
 </nav>
