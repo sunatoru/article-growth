@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  protect_from_forgery with: :exception
   def index
     @articles = Article.published.order(updated_at: :desc).page(params[:page]).per(10)
   end
@@ -15,7 +16,6 @@ class ArticlesController < ApplicationController
       show_article
     end
   end
- 
 
   def new
     @article = Article.new
@@ -40,6 +40,29 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if params[:draft].present?
+      @article.status = :draft
+      redirect_path = drafts_articles_path
+      notice_message = '下書きを保存しました。'
+    else
+      @article.status = :published
+      redirect_path = article_path(@article)
+      notice_message = '投稿を更新しました。'
+    end
+
+    if @article.update(article_params)
+      redirect_to redirect_path, notice: notice_message
+    else
+      render :edit
+    end
+  end
+
   private
 
   def article_params
@@ -57,7 +80,7 @@ class ArticlesController < ApplicationController
 
   def show_article
     @article = Article.find(params[:id])
-  
+
     if !@article.draft?
       render :show
     else

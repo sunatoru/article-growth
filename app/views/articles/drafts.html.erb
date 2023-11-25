@@ -2,6 +2,7 @@
 <div class="article-info">
 <h1 class="centered-text">下書き記事一覧</h1>
 <% @drafts.each do |article| %> 
+  <%= link_to edit_article_path(article), class: 'article-link' do %>
   <div class="article-box">
     <p class="article-name">
       <%= article.user.name %>
@@ -12,6 +13,7 @@
     <p class="update-time">
       <%= article.updated_at.strftime('%Y-%m-%d') %>
     </p>
+      <% end %>
   </div>
 <% end %>
 <%= paginate @drafts %>
