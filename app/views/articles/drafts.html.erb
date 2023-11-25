@@ -1,5 +1,6 @@
 <%= render "layouts/header_article" %>
 <div class="article-info">
+<h1 class="centered-text">下書き記事一覧</h1>
 <% @drafts.each do |article| %> 
   <div class="article-box">
     <p class="article-name">
@@ -15,3 +16,4 @@
 <% end %>
 <%= paginate @drafts %>
 </div>
+<%= render "layouts/footer" %>

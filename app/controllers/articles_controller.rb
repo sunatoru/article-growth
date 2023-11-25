@@ -8,6 +8,15 @@ class ArticlesController < ApplicationController
     @drafts = Article.where(status: 'draft').order(created_at: :desc).page(params[:page]).per(10)
   end
 
+  def show
+    if params[:id] == 'drafts'
+      show_drafts
+    else
+      show_article
+    end
+  end
+ 
+
   def new
     @article = Article.new
   end
@@ -22,7 +31,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       if @article.status == 'draft'
-        redirect_to drafts_path, notice: '記事が下書き保存されました。'
+        redirect_to drafts_articles_path, notice: '記事が下書き保存されました。'
       else
         redirect_to root_path, notice: '記事が公開されました。'
       end
@@ -35,5 +44,24 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :content, :image, :status).merge(user_id: current_user.id)
+  end
+
+  def show_drafts
+    if user_signed_in?
+      @drafts = Article.where(status: 'draft', user: current_user).order(created_at: :desc).page(params[:page]).per(10)
+      render 'drafts'
+    else
+      redirect_to root_path, alert: 'ログインしていません。'
+    end
+  end
+
+  def show_article
+    @article = Article.find(params[:id])
+  
+    if !@article.draft?
+      render :show
+    else
+      redirect_to root_path, alert: 'この記事は閲覧できません。'
+    end
   end
 end
