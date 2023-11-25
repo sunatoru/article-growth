@@ -1,0 +1,12 @@
+<%= render "layouts/header_article" %>
+<div class="articles_boxs">
+  <div class="article-detail">
+    <p>投稿者: <%= @article.user.name %></p>
+    <h1><%= @article.title %></h1>
+    <p>投稿日: <%= @article.created_at.strftime('%Y-%m-%d') %>  , 最終更新日: <%= @article.updated_at.strftime('%Y-%m-%d') %></p>
+    <div class="article-content">
+      <%= raw @article.content %> <!-- raw メソッドを使って HTML タグをそのまま表示 -->
+    </div>
+  </div>
+</div>
+

@@ -13,8 +13,13 @@ $article-background: #fff; // 記事ボックスの背景色
   min-height: 100vh; /* 画面の高さいっぱいに広がるように */
   background-color: $background-color; /* 全体の背景色を設定 */
   padding-top: 20px;
- 
+
+  .centered-text {
+    text-align: center;
+    font-size: 1.5em; // 適切なサイズに調整
+  }
 } 
+
 .article-box{
   width: 45%;
   margin-bottom: 20px;
@@ -25,6 +30,11 @@ $article-background: #fff; // 記事ボックスの背景色
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  a {
+    text-decoration: none; // 下線を削除
+    color: inherit; // 親要素の色を継承する
+  }
 
   .article-title {
     font-size: 1.8em;
@@ -39,9 +49,47 @@ $article-background: #fff; // 記事ボックスの背景色
   .update-time {
     font-size: 1.0em; // 適切なサイズに調整
     color: #888; // 適切な色に調整
+
   }
 }
 
+
+
+// show_viewの見た目の記述
+.articles_boxs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+
+  .article-detail {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #555;
+      margin: 5px 0;
+    }
+
+    .article-content {
+      margin-top: 20px;
+      text-align: center; /* コンテンツを中央に寄せるためのスタイル */
+      font-size: 20px; /* 文字の大きさを設定 */
+      color: #333; /* タイトルと同じ色に設定 */
+    }
+  }
+}
 
 
 
