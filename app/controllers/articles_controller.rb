@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   protect_from_forgery with: :exception
   def index
     @articles = Article.published.order(updated_at: :desc).page(params[:page]).per(10)
@@ -42,6 +42,11 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    # 投稿者でない場合は編集ページにアクセスできないようにリダイレクト
+    return if @article.user == current_user
+
+    redirect_to root_path, alert: '編集権限がありません。'
+    nil
   end
 
   def update
