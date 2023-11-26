@@ -24,6 +24,7 @@
                 <% end %>
                   <% if (@article && current_user == @article.user) %> <!-- 記事が存在し、かつログインユーザーが投稿者の場合 -->
                     <li><%= link_to '記事編集', edit_article_path(@article), class: 'dropdown-item' %></li>
+                    <li><%= link_to '記事削除', article_path(@article), data: { turbo_method: :delete }, class: 'dropdown-item' %></li>
                   <% end %>
               <% else %> <!-- 未登録の場合 -->
                 <li><%= link_to '新規登録', new_user_registration_path, class: 'dropdown-item' %></li>
