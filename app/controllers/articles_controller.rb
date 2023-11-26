@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  protect_from_forgery with: :exception
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :show_article, only: [:edit, :update, :destroy]
   def index
     @articles = Article.published.order(updated_at: :desc).page(params[:page]).per(10)
   end
@@ -22,27 +22,28 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    @user = current_user
     @article = Article.new(article_params)
-    if params[:draft] == 'true'
-      @article.status = 'draft'
-    elsif params[:published] == '投稿'
-      @article.status = 'published'
-    end
+    @article.user_id = @user.id
+
+    @article.status = if params[:draft].present?
+                        :draft
+                      else
+                        :published
+                      end
 
     if @article.save
-      if @article.status == 'draft'
+      if @article.draft?
         redirect_to drafts_articles_path, notice: '記事が下書き保存されました。'
       else
         redirect_to root_path, notice: '記事が公開されました。'
       end
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @article = Article.find(params[:id])
-    # 投稿者でない場合は編集ページにアクセスできないようにリダイレクト
     return if @article.user == current_user
 
     redirect_to root_path, alert: '編集権限がありません。'
@@ -50,7 +51,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:id])
     if params[:draft].present?
       @article.status = :draft
       redirect_path = drafts_articles_path
@@ -64,7 +64,24 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to redirect_path, notice: notice_message
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    unless @article.user == current_user
+      redirect_to root_path, alert: '削除権限がありません。'
+      return
+    end
+
+    is_draft = @article.draft?
+
+    @article.destroy
+
+    if is_draft
+      redirect_to drafts_articles_path, notice: '下書き記事が削除されました。'
+    else
+      redirect_to root_path, notice: '記事が削除されました。'
     end
   end
 
@@ -79,17 +96,11 @@ class ArticlesController < ApplicationController
       @drafts = Article.where(status: 'draft', user: current_user).order(created_at: :desc).page(params[:page]).per(10)
       render 'drafts'
     else
-      redirect_to root_path, alert: 'ログインしていません。'
+      redirect_to root_path, status: :unprocessable_entity
     end
   end
 
   def show_article
     @article = Article.find(params[:id])
-
-    if !@article.draft?
-      render :show
-    else
-      redirect_to root_path, alert: 'この記事は閲覧できません。'
-    end
   end
 end
