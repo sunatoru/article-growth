@@ -2,11 +2,11 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :show_article, only: [:edit, :update, :destroy]
   def index
-    @articles = Article.published.order(updated_at: :desc).page(params[:page]).per(10)
+    @articles = Article.published.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
   end
 
   def drafts
-    @drafts = Article.where(status: 'draft').order(created_at: :desc).page(params[:page]).per(10)
+    @drafts = Article.where(status: 'draft').includes(:user).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def show
