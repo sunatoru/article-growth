@@ -3,8 +3,8 @@ class Article < ApplicationRecord
   has_one_attached :image
   enum status: { published: 0, draft: 1 }
 
-  validates :title, presence: true
-  validates :content, presence: true
+  validates :title, presence: { message: 'はタイトルを入力してください' }
+  validates :content, presence: { message: 'は内容を入力してください' }
 
   # 画像が添付されているかどうかを確認するカスタムバリデーション
   validate :image_attached?, on: :create, if: -> { image.attached? }

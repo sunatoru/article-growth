@@ -16,7 +16,9 @@
           </a>
           <ul class="dropdown-menu">
           <% if user_signed_in? %> <!-- ログイン中の場合 -->
+            <% unless controller_name == 'articles' && action_name == 'new' %> <!-- ArticlesControllerのnewアクションにいない場合 -->
             <li><%= link_to '新規投稿', new_article_path, class: 'dropdown-item' %></li>
+            <% end %>
             <li><%= link_to '下書き一覧', drafts_articles_path, class: 'dropdown-item' %></li>
             <%else%> <!-- 未登録の場合 -->
             <li><%= link_to '新規登録', new_user_registration_path, class: 'dropdown-item' %></li>
