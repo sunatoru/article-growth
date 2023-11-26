@@ -9,6 +9,10 @@ class Article < ApplicationRecord
   # 画像が添付されているかどうかを確認するカスタムバリデーション
   validate :image_attached?, on: :create, if: -> { image.attached? }
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[title content]
+  end
+
   private
 
   def image_attached?
