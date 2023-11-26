@@ -2,7 +2,9 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :show_article, only: [:edit, :update, :destroy]
   def index
-    @articles = Article.published.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
+    @q = Article.ransack(params[:q])
+    @articles = @q.result.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
+    # @articles = Article.published.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
   end
 
   def drafts
@@ -66,6 +68,11 @@ class ArticlesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def search
+    @q = Article.ransack(params[:q])
+    @articles = @q.result.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
   end
 
   def destroy

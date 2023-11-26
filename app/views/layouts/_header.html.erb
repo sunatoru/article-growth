@@ -28,12 +28,14 @@
         </li>
       </ul>
 <div class="d-flex justify-content-end align-items-center">
-  <form class="me-2" role="search">
+  <%= search_form_for Article.ransack(params[:q]), url: search_articles_path, html: { class: "me-2", role: "search" } do |f| %>
+    <% if controller_name == 'articles' && (action_name == 'index' || action_name == 'search') %>
     <div class="d-flex">
-      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+      <%= f.search_field :title_cont, class: "form-control", placeholder: "Search", aria: { label: "Search" } %>
+      <%= f.submit "Search", class: "btn btn-outline-success" %>
     </div>
-  </form>
+    <% end %>
+  <% end %>
   <% if user_signed_in? %>
     <div class="btn-group">
       <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

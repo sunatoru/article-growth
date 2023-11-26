@@ -99,3 +99,5 @@ gem 'kaminari'
 #画像加工のためのgem
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+# 検索機能のため
+gem 'ransack'
