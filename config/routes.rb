@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :comments, only: :create
   end
   get '/articles/drafts', to: 'articles#drafts', as: 'drafts_articles'
 end

@@ -5,7 +5,7 @@
     <h1><%= @article.title %></h1>
     <p>投稿日: <%= @article.created_at.strftime('%Y-%m-%d') %>  , 最終更新日: <%= @article.updated_at.strftime('%Y-%m-%d') %></p>
     <div class="article-content">
-      <%=@article.content %> <!-- raw メソッドを使って HTML タグをそのまま表示 -->
+      <%=@article.content %> 
     </div>
     <div class="article_image">
     <% if @article && @article.image.attached? %>
@@ -14,4 +14,28 @@
     </div>
   </div>
 </div>
+<%# コメント表示 %>
+<div class="comments-cont">
+  <div id="comments">
+    <h4>＜コメント一覧＞</h4>
+      <% @article.comments.each do |comment| %>
+        <div class="comment">
+          <p class="user-info"><%= comment.user.name %>： </p>
+          <p><%= comment.text%></p>
+        </div>
+      <% end %>
+  </div>
 
+<%# コメントフォーム欄 %>
+<div class="comment-form1">
+  <% if user_signed_in? %>
+    <%= form_with model: [@article, @comment], id: "comment-form" do |f| %>
+      <%= f.text_area :text , class: "comment-text"%>
+      <%= f.submit "コメントをする", class: "comment-submit1" %>
+    <% end %>
+  <% end %>
+</div>
+</div>
+<div class="footer-protect">
+ <%= render "layouts/footer" %>
+</div>
