@@ -16,6 +16,8 @@ class ArticlesController < ApplicationController
       show_drafts
     else
       show_article
+      @comments = @article.comments.includes(:user)
+      @comment = Comment.new
     end
   end
 

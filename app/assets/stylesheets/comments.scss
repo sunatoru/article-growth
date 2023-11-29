@@ -1,0 +1,45 @@
+.comments-cont {
+  background-color: #fff; /* 背景色を白に設定 */
+  padding-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  display: block;
+  width: 55%;
+  margin: 0 auto; /* 中央に寄せる */
+}
+
+.comments-cont #comments {
+
+  h4 {
+    font-size: 1.5em;
+    color: #333;
+
+  }
+
+  .comment {
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+
+    .user-info {
+      font-weight: bold;
+    }
+  }
+}
+
+.comment-form1 {
+  padding-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4; /* 背景色を白に設定 */
+  width: 45%;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
