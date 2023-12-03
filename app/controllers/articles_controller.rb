@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   def index
     @q = Article.ransack(params[:q])
     @articles = @q.result.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
-    # @articles = Article.published.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
   end
 
   def drafts
@@ -30,7 +29,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user_id = @user.id
 
-    @article.status = if params[:draft].present?
+    @article.status = if params[:draft_button].present?
                         :draft
                       else
                         :published
@@ -55,7 +54,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if params[:draft].present?
+    if params[:draft_button].present?
       @article.status = :draft
       redirect_path = drafts_articles_path
       notice_message = '下書きを保存しました。'

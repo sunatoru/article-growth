@@ -13,6 +13,9 @@
       <p class="update-time">
         <%= article.updated_at.strftime('%Y-%m-%d') %>
       </p>
+      <div id="like-btn<%= article.id %>">
+        <%= render partial: "likes/like", locals: { article: article } %>
+      </div>
       <% end %>
     </div>
   <% end %>
