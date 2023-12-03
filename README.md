@@ -41,11 +41,32 @@ https://article-growth.onrender.com
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/ce351e9238b135f7f5c0f29981cd897e.gif)](https://gyazo.com/ce351e9238b135f7f5c0f29981cd897e) | [![Image from Gyazo](https://i.gyazo.com/5f5251d5069c726e1818a16153330cdb.gif)](https://gyazo.com/5f5251d5069c726e1818a16153330cdb) |
 | 登録せずに検索機能と記事詳細まで見ることが可能です。 | 新規登録はname,e-mail,passwordでの認証機能を実装しました。ログインはemail,passwordだけで認証します。 |
+<br>
+<br>
+<br>
 
-|  |　|
+| 記事保存機能 |　下書き記事保存機能 |
 | ---- | ---- |
-| | |
-|  |  |
+| [![Image from Gyazo](https://i.gyazo.com/ce351e9238b135f7f5c0f29981cd897e.gif)](https://gyazo.com/ce351e9238b135f7f5c0f29981cd897e) | [![Image from Gyazo](https://i.gyazo.com/13944f15321247c95f63d77fd477bab7.gif)](https://gyazo.com/13944f15321247c95f63d77fd477bab7) |
+| 記事保存後は全体に公開されます。 | 下書き記事保存機能になります。自分だけ見ることができて編集したい記事のtitle,name,更新日を押すと記事編集画面に遷移されます。 |
+<br>
+<br>
+<br>
+
+
+| 記事編集機能 |　記事削除機能機能 |
+| ---- | ---- |
+| [![Image from Gyazo](https://i.gyazo.com/78b6da050b3b47e5f395bec7ae5f88eb.gif)](https://gyazo.com/78b6da050b3b47e5f395bec7ae5f88eb) | [![Image from Gyazo](https://i.gyazo.com/bc6a1f9de63d1e37ffa65120b23efe18.gif)](https://gyazo.com/bc6a1f9de63d1e37ffa65120b23efe18) |
+| 記事編集ボタンをmenuから押せば記事編集画面に行きいつでも記事を公開下書き記事保存で非公開にできます。 | 投稿者のみ記事を削除できます。 |
+
+<br>
+<br>
+<br>
+
+| 検索機能 |　いいね機能 |
+| ---- | ---- |
+| [![Image from Gyazo](https://i.gyazo.com/ebf5ddae2caef868ed361c1f70e60100.gif)](https://gyazo.com/ebf5ddae2caef868ed361c1f70e60100) | [![Image from Gyazo](https://i.gyazo.com/8b4f5829eb833cb201b0002cf7e1ce7f.gif)](https://gyazo.com/8b4f5829eb833cb201b0002cf7e1ce7f) |
+| 全てのユーザーが検索で部分一致する文字をsearchすると該当の記事を絞り画面に表示します。 | 投稿者以外の記事にログインユーザーのみいいねを押してそのいいねが数がわかるように表示するようにしました。 |
 
 
 
@@ -57,15 +78,22 @@ https://article-growth.onrender.com
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/5717a1976382b573f6d2dabe54eae64c.gif)](https://gyazo.com/5717a1976382b573f6d2dabe54eae64c)
 
-# 開発環境
-・フロントエンド
-<br>・Ruby・
-<br>・インフラ
-<br>・テスト
-<br>・VScode 
+# 使用技術
+・Ruby 3.2.0
+<br>・Rails 7.0.8
+<br>・RSpec
+<br>・mySQL
+<br>
+<br><br>
 
-# ローカルでの動作方法
-作成したら随時記述
+### 主要Gem
+- deivce(認証機能)
+- bootstrap(デザイン)
+- ransack(検索機能)
+- kaminari(ページネーション)
+- mini_magick,image_processing(画像挿入)
+
 
 # 工夫したポイント
-作成時に、この作業に手間取ったことや理解してきちんと言葉にして実装して重要だった機能についてここに記述していきます。
+下書き記事をメソッドでdraftsメソッドを作成したことです。そのためのroutes.rbにルーティングの記述を行い、そのメソッドに合わせてviewを作成しました。後、ミニアプリを実際に作成してBootStrap5を導入してデザインを変化させたことです（同じ環境下で実装した人の記事を見ながら試して表示されたgemを導入）。
+
