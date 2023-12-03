@@ -9,8 +9,8 @@
 
         <%= form.file_field :image, class: 'form-control mb-3', accept: 'image/*' %>
         
-        <%= form.submit "投稿", class: 'btn btn-primary',name: "published" %>
-        <%= form.button "下書き保存", class: "btn btn-secondary", name: "draft" %>
+        <%= form.button "投稿", class: 'btn btn-primary', name: "published_button", value: "published" %>
+        <%= form.button "下書き保存", class: "btn btn-secondary", name: "draft_button", value: "draft" %>
       <% end %>
     </div>
   </div>

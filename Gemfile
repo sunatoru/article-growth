@@ -87,7 +87,7 @@ end
 group :production do
   gem 'pg'
 end
-
+#BootStrap導入のため
 gem 'sassc-rails'
 gem 'mini_racer'
 # 日本語化するためにgemを導入
