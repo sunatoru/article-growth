@@ -28,7 +28,6 @@ $article-background: #fff; // 記事ボックスの背景色
   border: 1px solid $primary-color;
   border-radius: 5px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
 
   a {
@@ -95,6 +94,23 @@ $article-background: #fff; // 記事ボックスの背景色
   }
 }
 
+
+.article_likes {
+  .btn.btn-outline-danger {
+    color: white; 
+  }
+
+  .bi-heart-fill {
+    // ここにハートのアイコンに適用するカスタムスタイルを追加
+    color: red; // ハートを赤色にする例
+    font-size: 1em; // フォントサイズを調整する例
+  }
+  .bi-heart {
+    color: red; // ハートを赤色にする例
+    font-size: 1em; // フォントサイズを調整する例
+
+  }
+}
 
 
 
