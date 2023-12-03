@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :user
   has_many :comments
+  has_many :likes
   has_one_attached :image
   enum status: { published: 0, draft: 1 }
 
@@ -12,6 +13,10 @@ class Article < ApplicationRecord
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[title content]
+  end
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 
   private
