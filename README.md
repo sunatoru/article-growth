@@ -7,16 +7,16 @@ article-growth
 # URL
 https://article-growth.onrender.com
 # テスト用アカウント
-・Basic認証パスワード: teiruzu15
-<br>・Basic認証ID: tanosan
-<br>アカウント1
-<br>・name: test
-<br>・メールアドレス: test@com 
-<br>・パスワード: 111111
-<br>アカウント2
-<br>・name: faker
-<br>・メールアドレス: faker@com
-<br>・パスワード: test12
+- Basic認証パスワード: teiruzu15
+- Basic認証ID: tanosan
+- アカウント1
+- name: test
+- メールアドレス: test@com
+- パスワード: 111111
+- アカウント2
+- name: faker
+- メールアドレス: faker@com
+- パスワード: test12
 (ちゃんと投稿者のみに編集ができるかどうかの確認用で2つアカウントを用意してます)
 <br>
 <br>
@@ -41,17 +41,13 @@ https://article-growth.onrender.com
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/ce351e9238b135f7f5c0f29981cd897e.gif)](https://gyazo.com/ce351e9238b135f7f5c0f29981cd897e) | [![Image from Gyazo](https://i.gyazo.com/5f5251d5069c726e1818a16153330cdb.gif)](https://gyazo.com/5f5251d5069c726e1818a16153330cdb) |
 | 登録せずに検索機能と記事詳細まで見ることが可能です。 | 新規登録はname,e-mail,passwordでの認証機能を実装しました。ログインはemail,passwordだけで認証します。 |
-<br>
-<br>
-<br>
+
 
 | 記事保存機能 |　下書き記事保存機能 |
 | ---- | ---- |
 | [![Image from Gyazo](https://i.gyazo.com/ce351e9238b135f7f5c0f29981cd897e.gif)](https://gyazo.com/ce351e9238b135f7f5c0f29981cd897e) | [![Image from Gyazo](https://i.gyazo.com/13944f15321247c95f63d77fd477bab7.gif)](https://gyazo.com/13944f15321247c95f63d77fd477bab7) |
 | 記事保存後は全体に公開されます。 | 下書き記事保存機能になります。自分だけ見ることができて編集したい記事のtitle,name,更新日を押すと記事編集画面に遷移されます。 |
-<br>
-<br>
-<br>
+
 
 
 | 記事編集機能 |　記事削除機能機能 |
@@ -59,9 +55,7 @@ https://article-growth.onrender.com
 | [![Image from Gyazo](https://i.gyazo.com/78b6da050b3b47e5f395bec7ae5f88eb.gif)](https://gyazo.com/78b6da050b3b47e5f395bec7ae5f88eb) | [![Image from Gyazo](https://i.gyazo.com/bc6a1f9de63d1e37ffa65120b23efe18.gif)](https://gyazo.com/bc6a1f9de63d1e37ffa65120b23efe18) |
 | 記事編集ボタンをmenuから押せば記事編集画面に行きいつでも記事を公開下書き記事保存で非公開にできます。 | 投稿者のみ記事を削除できます。 |
 
-<br>
-<br>
-<br>
+
 
 | 検索機能 |　いいね機能 |
 | ---- | ---- |
@@ -79,12 +73,11 @@ https://article-growth.onrender.com
 [![Image from Gyazo](https://i.gyazo.com/5717a1976382b573f6d2dabe54eae64c.gif)](https://gyazo.com/5717a1976382b573f6d2dabe54eae64c)
 
 # 使用技術
-・Ruby 3.2.0
-<br>・Rails 7.0.8
-<br>・RSpec
-<br>・mySQL
+- Ruby 3.2.0
+- Rails 7.0.8
+- RSpec
+- mySQL  
 <br>
-<br><br>
 
 ### 主要Gem
 - deivce(認証機能)
@@ -92,7 +85,7 @@ https://article-growth.onrender.com
 - ransack(検索機能)
 - kaminari(ページネーション)
 - mini_magick,image_processing(画像挿入)
-
+<br>
 
 # 工夫したポイント
 下書き記事をメソッドでdraftsメソッドを作成したことです。そのためのroutes.rbにルーティングの記述を行い、そのメソッドに合わせてviewを作成しました。後、ミニアプリを実際に作成してBootStrap5を導入してデザインを変化させたことです（同じ環境下で実装した人の記事を参考にしながら試して表示するために必要なgemを導入）。
