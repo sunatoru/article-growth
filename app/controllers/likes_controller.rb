@@ -6,9 +6,6 @@ class LikesController < ApplicationController
       like.save
       # リクエストを送信した元のページのURLを表します。
       redirect_to request.referer
-      # respond_to do |format|
-      #   format.js
-      # end
     else
       redirect_back(fallback_location: root_path)
     end
@@ -19,9 +16,6 @@ class LikesController < ApplicationController
     like.destroy
     # リクエストを送信した元のページのURLを表します。
     redirect_to request.referer
-    # respond_to do |format|
-    #   format.js
-    # end
   end
 
   def set_article
