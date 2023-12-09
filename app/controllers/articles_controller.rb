@@ -2,8 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :show_article, only: [:edit, :update, :destroy]
   def index
-    @q = Article.ransack(params[:q])
-    @articles = @q.result.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
+    @articles = Article.where(status: 'published').includes(:user).order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def drafts
@@ -11,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    if params[:id] == 'drafts'
+    if params[:id] == 'draft'
       show_drafts
     else
       show_article
@@ -102,7 +101,7 @@ class ArticlesController < ApplicationController
   def show_drafts
     if user_signed_in?
       @drafts = Article.where(status: 'draft', user: current_user).order(created_at: :desc).page(params[:page]).per(10)
-      render 'drafts'
+      render 'draft'
     else
       redirect_to root_path, status: :unprocessable_entity
     end

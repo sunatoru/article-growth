@@ -16,19 +16,19 @@ RSpec.describe Like, type: :model do
     end
     context 'いいねができない場合' do
       it '記事の投稿者=いいねするユーザーだったらいいねできない' do
-        @like.user_id = @user.id 
+        @like.user_id = @user.id
         @like.valid?
-        expect(@like.errors.full_messages).to include "記事の所有者はいいねできません"
+        expect(@like.errors.full_messages).to include '記事の所有者はいいねできません'
       end
       it '記事に紐づいてないといいねできない' do
-        @like.article_id = nil 
+        @like.article_id = nil
         @like.valid?
-        expect(@like.errors.full_messages).to include "Articleを入力してください"
+        expect(@like.errors.full_messages).to include 'Articleを入力してください'
       end
       it 'user_idに紐づいてないといいねできない' do
         @like.user_id = nil
         @like.valid?
-        expect(@like.errors.full_messages).to include "ユーザーIDが空です"
+        expect(@like.errors.full_messages).to include 'ユーザーIDが空です'
       end
     end
   end

@@ -1,6 +1,6 @@
 <%= render "layouts/header" %>
-<div class="article-info">
-<h1 class="centered-text">記事一覧</h1>
+  <div class="article-info">
+  <h1 class="centered-text">記事一覧</h1>
   <% @articles.where.not(status: :draft).each do |article| %> 
     <div class="article-box">
      <%= link_to article_path(article) do %>
@@ -21,6 +21,6 @@
       <% end %>
     </div>
   <% end %>
-  <%= paginate @articles.where.not(status: :draft) %> 
- </div>
+    <%= paginate @articles.where.not(status: :draft) %> 
+  </div>
  <%= render "layouts/footer" %>   
