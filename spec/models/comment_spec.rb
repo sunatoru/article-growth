@@ -14,9 +14,9 @@ RSpec.describe Comment, type: :model do
   describe 'コメントができない場合' do
     context 'コメントが記事にできない場合' do
       it '記事がない場合コメントができない' do
-        @comment.text = " "
+        @comment.text = ' '
         @comment.valid?
-        expect(@comment.errors.full_messages).to include "Textは文字を入力してください"
+        expect(@comment.errors.full_messages).to include 'Textは文字を入力してください'
       end
     end
     context 'コメントが記事にできない場合' do
@@ -24,14 +24,14 @@ RSpec.describe Comment, type: :model do
         logged_out_user = nil
         @comment.user = logged_out_user
         @comment.valid?
-        expect(@comment.errors.full_messages).to include "Userを入力してください"
+        expect(@comment.errors.full_messages).to include 'Userを入力してください'
       end
     end
     context 'コメントが記事にできない場合' do
       it '記事がない場合コメントができない' do
         @comment.article = nil
         @comment.valid?
-        expect(@comment.errors.full_messages).to include "Articleを入力してください"
+        expect(@comment.errors.full_messages).to include 'Articleを入力してください'
       end
     end
   end
