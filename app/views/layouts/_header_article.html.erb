@@ -19,8 +19,8 @@
                 <% unless controller_name == 'articles' && action_name == 'new' %> <!-- ArticlesControllerのnewアクションにいない場合 -->
                   <li><%= link_to '新規投稿', new_article_path, class: 'dropdown-item' %></li>
                 <% end %>
-                <% unless current_page?(drafts_articles_path) %> <!-- drafts_articles_path ページの場合は非表示 -->
-                <li><%= link_to '下書き一覧', drafts_articles_path, class: 'dropdown-item' %></li>
+                <% unless current_page?(draft_articles_path) %> <!-- draft_articles_path ページの場合は非表示 -->
+                <li><%= link_to '下書き一覧', draft_articles_path, class: 'dropdown-item' %></li>
                 <% end %>
                   <% if (@article && current_user == @article.user) %> <!-- 記事が存在し、かつログインユーザーが投稿者の場合 -->
                     <li><%= link_to '記事編集', edit_article_path(@article), class: 'dropdown-item' %></li>

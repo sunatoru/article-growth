@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     end
     resources :comments, only: :create
   end
-  get '/articles/drafts', to: 'articles#drafts', as: 'drafts_articles'
+  get '/articles/draft', to: 'articles#draft', as: 'draft_articles'
 end
