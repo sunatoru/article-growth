@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
     @articles = Article.where(status: 'published').includes(:user).order(created_at: :desc).page(params[:page]).per(10)
   end
 
-  def drafts
+  def draft
     @drafts = Article.where(status: 'draft').includes(:user).order(created_at: :desc).page(params[:page]).per(10)
   end
 
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       if @article.draft?
-        redirect_to drafts_articles_path, notice: '記事が下書き保存されました。'
+        redirect_to draft_articles_path, notice: '記事が下書き保存されました。'
       else
         redirect_to root_path, notice: '記事が公開されました。'
       end
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
   def update
     if params[:draft_button].present?
       @article.status = :draft
-      redirect_path = drafts_articles_path
+      redirect_path = draft_articles_path
       notice_message = '下書きを保存しました。'
     else
       @article.status = :published
@@ -86,7 +86,7 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     if is_draft
-      redirect_to drafts_articles_path, notice: '下書き記事が削除されました。'
+      redirect_to draft_articles_path, notice: '下書き記事が削除されました。'
     else
       redirect_to root_path, notice: '記事が削除されました。'
     end
