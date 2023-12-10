@@ -101,3 +101,5 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 # 検索機能のため
 gem 'ransack'
+# JSフォーマットを使用するため
+gem "jquery-rails"
