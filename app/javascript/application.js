@@ -6,3 +6,5 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "channels"
+//= require jquery
+//= require rails-ujs
