@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
     resources :comments, only: :create
   end
+  resources :users, only: :show
   get '/articles/draft', to: 'articles#draft', as: 'draft_articles'
 end
