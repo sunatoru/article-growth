@@ -11,10 +11,6 @@
             <th class="table-secondary w-25">氏名</th> 
             <td><%= @user.name %></td>
           </tr>
-          <tr>
-            <th class="table-secondary">メールアドレス</th>
-            <td><%= @user.email %></td>
-          </tr>
         </table>
       </div>
       <%= link_to '下書き一覧ページ', draft_articles_path, class: "btn btn-info mb-4" %>
