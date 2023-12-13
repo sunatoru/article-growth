@@ -6,11 +6,11 @@ class UsersController < ApplicationController
     @like_articles = Article.where(id: likes).page(params[:page]).per(10)
   end
 
-
   def show
   end
 
   private
+
   def set_user
     @user = User.find(params[:id])
   end
