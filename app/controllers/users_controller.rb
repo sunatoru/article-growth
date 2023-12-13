@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def likes
     likes = Like.where(user_id: @user.id).pluck(:article_id)
-    @like_articles = Article.find(likes)
+    @like_articles = Article.where(id: likes).page(params[:page]).per(10)
   end
 
 

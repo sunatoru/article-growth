@@ -1,2 +1,27 @@
-
-<p>いいねした投稿一覧</p>
+<%= render "layouts/header" %>
+<div class="article-info">
+<h1 class="centered-text">いいねした投稿一覧</h1>
+  <% @like_articles.each do |article| %> 
+    <div class="article-box">
+     <%= link_to article_path(article) do %>
+      <div class ="article-box-info">
+      <p class="article-name">
+        <%= article.user.name %>
+      </p>
+      <p class="article-title">
+        <%= article.title %>
+      </p> 
+      <p class="update-time">
+        <%= article.updated_at.strftime('%Y-%m-%d') %>
+      </p>
+      </div>
+      <div id="like-btn<%= article.id %>">
+      <%= render partial: "likes/like", locals: { article: article } %>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+    <%= paginate @like_articles %> 
+  </div>
+  </div>
+ <%= render "layouts/footer" %>   
