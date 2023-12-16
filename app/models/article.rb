@@ -16,9 +16,8 @@ class Article < ApplicationRecord
   end
 
   def liked_by?(user)
-    likes.where(user_id: user.id).exists?
+    likes.pluck(:user_id).include?(user.id)
   end
-
   private
 
   def image_attached?

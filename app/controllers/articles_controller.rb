@@ -72,7 +72,7 @@ class ArticlesController < ApplicationController
 
   def search
     @q = Article.ransack(params[:q])
-    @articles = @q.result.includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
+    @articles = @q.result.includes(:user, :likes).order(updated_at: :desc).page(params[:page]).per(10)
   end
 
   def destroy
