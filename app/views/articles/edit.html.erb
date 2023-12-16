@@ -1,17 +1,4 @@
 <%= render "layouts/header_article" %>
 <div class="container mt-4">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <%= form_with(model: @article, local: true, html: { multipart: true }) do |form| %>
-        <%= render 'layouts/error_messages', model: form.object %>
-        <%= form.text_field :title, class: 'form-control mb-3', placeholder: "記事のtitle" %>
-        <%= form.text_area :content, class: 'form-control mb-3', placeholder: "記事に関する内容を記述", rows: "10" %>
-
-        <%= form.file_field :image, class: 'form-control mb-3', accept: 'image/*' %>
-        
-        <%= form.button "投稿", class: 'btn btn-primary', name: "published_button", value: "published" %>
-        <%= form.button "下書き保存", class: "btn btn-secondary", name: "draft_button", value: "draft" %>
-      <% end %>
-    </div>
-  </div>
+<%= render partial: 'articles', locals: { article: @article } %>
 </div>
