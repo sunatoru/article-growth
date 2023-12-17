@@ -18,6 +18,7 @@ class Article < ApplicationRecord
   def liked_by?(user)
     likes.pluck(:user_id).include?(user.id)
   end
+
   private
 
   def image_attached?

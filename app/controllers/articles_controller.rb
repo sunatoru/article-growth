@@ -100,9 +100,12 @@ class ArticlesController < ApplicationController
 
   def show_drafts
     if user_signed_in?
-      @drafts = Article.where(status: 'draft',
-                              user: current_user).includes(:user).order(updated_at: :desc).page(params[:page]).per(10)
-      render 'draft'
+      @drafts = Article.where(status: 'draft', user: current_user)
+                       .includes(:user)
+                       .order(updated_at: :desc)
+                       .page(params[:page])
+                       .per(10)
+      render 'draft' if @drafts.present? # 投稿が存在する場合のみ表示
     else
       redirect_to root_path, status: :unprocessable_entity
     end
