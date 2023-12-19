@@ -2,8 +2,8 @@
 <div class="article-info">
 <h1 class="centered-text">下書き記事一覧</h1>
 <% @drafts.each do |article| %>
-<% if article.user == current_user %> <!-- 投稿者がログインユーザーの記事のみ表示 --> 
-  <%= link_to edit_article_path(article), class: 'article-link' do %>
+  <% if article.user == current_user %> <!-- 投稿者がログインユーザーの記事のみ表示 --> 
+    <%= link_to edit_article_path(article), class: 'article-link' do %>
   <div class="article-box">
     <p class="article-name">
       <%= article.user.name %>
@@ -14,9 +14,11 @@
     <p class="update-time">
       <%= article.updated_at.strftime('%Y-%m-%d') %>
     </p>
-      <% end %>
+    <% end %>
+  <% end %>
   </div>
 <% end %>
 <%= paginate @drafts %>
 </div>
-<%= render "layouts/footer" %>
+
+<%= render "layouts/footer" %> 
