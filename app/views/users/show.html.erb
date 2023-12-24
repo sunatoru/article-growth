@@ -29,8 +29,10 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
   <div class="article-info">
+  <div class="articles">
 <h1 class="centered-text">いいねした投稿一覧</h1>
   <% @like_articles.each do |article| %> 
+  <div class="article" id=<%= article.id%>>
     <div class="article-box">
       <%= link_to article_path(article) do %>
       <div class ="article-box-info">
@@ -49,17 +51,23 @@
       </div>
       <% end %>
     </div>
+    </div>
   <% end %>
+  </div>
+
   <%= paginate @like_articles %>
   </div>
+
   </div>
 
 
 
   <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
   <div class="article-info">
+  <div class="articles">
 <h1 class="centered-text">下書き記事一覧</h1>
-<% @drafts.each do |article| %> 
+<% @drafts.each do |article| %>
+<div class="article" id=<%= article.id%>> 
   <%= link_to edit_article_path(article), class: 'article-link' do %>
   <div class="article-box">
     <p class="article-name">
@@ -73,7 +81,9 @@
     </p>
       <% end %>
   </div>
+  </div>
 <% end %>
+</div>
 </div>
 </div>
 <%= render "layouts/footer" %> 
