@@ -1,8 +1,10 @@
 <%= render "layouts/header_article" %>
 <div class="article-info">
+  <div class="articles">
 <h1 class="centered-text">下書き記事一覧</h1>
 <% @drafts.each do |article| %>
   <% if article.user == current_user %> <!-- 投稿者がログインユーザーの記事のみ表示 --> 
+  <div class="article" id=<%= article.id%>>
     <%= link_to edit_article_path(article), class: 'article-link' do %>
   <div class="article-box">
     <p class="article-name">
@@ -16,9 +18,10 @@
     </p>
     <% end %>
   <% end %>
-  </div>
+</div>
+</div>
 <% end %>
+</div>
 <%= paginate @drafts %>
 </div>
-
 <%= render "layouts/footer" %> 

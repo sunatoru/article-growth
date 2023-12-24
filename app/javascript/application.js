@@ -8,3 +8,4 @@ import "controllers"
 import "channels"
 //= require jquery
 //= require rails-ujs
+import "article"

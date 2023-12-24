@@ -14,11 +14,11 @@ class UsersController < ApplicationController
                             .per(10)
 
     @drafts = Article.where(status: 'draft', user: current_user)
-                      .includes(:user)
-                      .order(updated_at: :desc)
-                      .limit(5)  # 5件までに制限
-                      .page(params[:page])
-                      .per(5)
+                     .includes(:user)
+                     .order(updated_at: :desc)
+                     .limit(5)  # 5件までに制限
+                     .page(params[:page])
+                     .per(5)
   end
 
   private

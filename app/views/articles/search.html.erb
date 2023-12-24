@@ -1,9 +1,11 @@
 <%= render "layouts/header" %>
 <div class="article-info">
+  <div class="articles">
 <h1 class="centered-text">記事一覧</h1>
-  <% @articles.each do |article| %> 
+  <% @articles.each do |article| %>
+  <div class="article" id=<%= article.id%>> 
     <div class="article-box">
-     <%= link_to article_path(article) do %>
+      <%= link_to article_path(article) do %>
       <p class="article-name">
         <%= article.user.name %>
       </p>
@@ -18,7 +20,9 @@
       </div>
       <% end %>
     </div>
+    </div>
   <% end %>
   <%= paginate @articles %> 
+ </div>
  </div>
  <%= render "layouts/footer" %>   
