@@ -5,6 +5,11 @@
   <% @articles.where.not(status: :draft).each do |article| %>
   <div class="article" id=<%= article.id%>> 
     <div class="article-box">
+      <% if article.tags.present? %>
+        <div class="mb-3">
+          <%= render 'articles/tags', article: article %>
+        </div>
+      <% end %>
       <%= link_to article_path(article) do %>
       <div class ="article-box-info">
       <p class="article-name">

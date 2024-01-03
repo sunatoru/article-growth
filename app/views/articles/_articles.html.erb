@@ -7,6 +7,9 @@
       <% end %>
       <%= form_with(model: @article, local: true, html: { multipart: true }) do |form| %>
       <%= render 'layouts/error_messages', model: form.object %>
+      <div class="form-group mt-3 mb-3">
+      <%= form.text_area :tag_names, class: 'form-control mb-3', placeholder: "記事のtag (複数つける場合)例:Top,Menu" ,rows: 2 %>
+      </div>
         <%= form.text_field :title, class: 'form-control mb-3', placeholder: "記事のtitle" %>
         <%= form.text_area :content, class: 'form-control mb-3', placeholder: "記事に関する内容を記述", rows: "10" %>
 

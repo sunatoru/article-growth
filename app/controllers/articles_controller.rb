@@ -27,6 +27,7 @@ class ArticlesController < ApplicationController
     @user = current_user
     @article = Article.new(article_params)
     @article.user_id = @user.id
+    tag_names = params[:article][:tag_names]
 
     @article.status = if params[:draft_button].present?
                         :draft
@@ -38,6 +39,10 @@ class ArticlesController < ApplicationController
       if @article.draft?
         redirect_to draft_articles_path, notice: '記事が下書き保存されました。'
       else
+        if tag_names.present?
+          tags = tag_names.split("\n").map(&:strip).uniq
+          create_or_update_article_tags(@article, tags)
+        end
         redirect_to root_path, notice: '記事が公開されました。'
       end
     else
@@ -53,17 +58,27 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    tag_names = params[:article][:tag_names]
+
     if params[:draft_button].present?
       @article.status = :draft
       redirect_path = draft_articles_path
       notice_message = '下書きを保存しました。'
     else
       @article.status = :published
+      if tag_names.present?
+        tags = params[:article][:tag_names].split("\n").map(&:strip).uniq
+        create_or_update_article_tags(@article, tags)
+      end
       redirect_path = article_path(@article)
       notice_message = '投稿を更新しました。'
     end
 
     if @article.update(article_params)
+      if tag_names.present?
+        tags = params[:article][:tag_names].split("\n").map(&:strip).uniq
+        create_or_update_article_tags(@article, tags)
+      end
       redirect_to redirect_path, notice: notice_message
     else
       render :edit, status: :unprocessable_entity
@@ -113,5 +128,17 @@ class ArticlesController < ApplicationController
 
   def show_article
     @article = Article.find(params[:id])
+  end
+
+  def create_or_update_article_tags(article, tags)
+    article.tags.destroy_all
+    begin
+    tags.each do |tag|
+      tag = Tag.find_or_create_by(name: tag)
+      article.tags << tag
+      rescue ActiveRecord::RecordInvalid
+        false
+      end
+    end
   end
 end
