@@ -1,6 +1,11 @@
 <%= render "layouts/header_article" %>
 <div class="articles_boxs">
   <div class="article-detail">
+    <% if @article.tags.present? %>
+    <div class="mb-3">
+      <p> <%= render 'articles/tags', article: @article %></p>
+    </div>
+    <% end %>
     <p>投稿者: <%= @article.user.name %></p>
     <h1><%= @article.title %></h1>
     <p>投稿日: <%= @article.created_at.strftime('%Y-%m-%d') %>  , 最終更新日: <%= @article.updated_at.strftime('%Y-%m-%d') %></p>

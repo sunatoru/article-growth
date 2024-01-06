@@ -36,6 +36,11 @@
     <div class="article-box">
       <%= link_to article_path(article) do %>
       <div class ="article-box-info">
+      <% if article.tags.present? %>
+        <div class="mb-3">
+          <%= render 'articles/tags', article: article %>
+        </div>
+      <% end %>
       <p class="article-name">
         <%= article.user.name %>
       </p>

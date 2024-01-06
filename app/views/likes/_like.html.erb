@@ -1,3 +1,4 @@
+<div style="float: right;">
 <% if user_signed_in? && article.liked_by?(current_user)%>
   <%=link_to article_likes_path(article.id), method: :delete, class: "article_likes btn btn-outline-danger", remote: true do %>
     <i class="bi bi-heart-fill"></i>
@@ -8,3 +9,4 @@
   <% end %>
 <% end %>
 <p>いいね <%=article.likes.size %></p>
+</div>

@@ -2,6 +2,8 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_many :likes, dependent: :destroy
+  has_many :article_tags, dependent: :destroy
+  has_many :tags, through: :article_tags
   has_one_attached :image
   enum status: { published: 0, draft: 1 }
 
