@@ -5,13 +5,13 @@
   <% @articles.where.not(status: :draft).each do |article| %>
   <div class="article" id=<%= article.id%>> 
     <div class="article-box">
+      <%= link_to article_path(article) do %>
+      <div class ="article-box-info">
       <% if article.tags.present? %>
         <div class="mb-3">
           <%= render 'articles/tags', article: article %>
         </div>
       <% end %>
-      <%= link_to article_path(article) do %>
-      <div class ="article-box-info">
       <p class="article-name">
         <%= article.user.name %>
       </p>
@@ -22,9 +22,11 @@
         <%= article.updated_at.strftime('%Y-%m-%d') %>
       </p>
       </div>
+      
       <div id="like-btn<%= article.id %>">
       <%= render partial: "likes/like", locals: { article: article } %>
       </div>
+      
       <% end %>
     </div>
     </div>
@@ -33,4 +35,4 @@
   <%= paginate @articles.where.not(status: :draft) %> 
   </div>
       
- <%= render "layouts/footer" %>   
+<%= render "layouts/footer" %>   

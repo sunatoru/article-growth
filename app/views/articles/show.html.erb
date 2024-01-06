@@ -2,9 +2,8 @@
 <div class="articles_boxs">
   <div class="article-detail">
     <% if @article.tags.present? %>
-
     <div class="mb-3">
-      <p>関連タグ: <%= render 'articles/tags', article: @article %></p>
+      <p> <%= render 'articles/tags', article: @article %></p>
     </div>
     <% end %>
     <p>投稿者: <%= @article.user.name %></p>
