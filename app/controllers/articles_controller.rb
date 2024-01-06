@@ -132,13 +132,12 @@ class ArticlesController < ApplicationController
 
   def create_or_update_article_tags(article, tags)
     article.tags.destroy_all
-    begin
+
     tags.each do |tag|
       tag = Tag.find_or_create_by(name: tag)
       article.tags << tag
-      rescue ActiveRecord::RecordInvalid
-        false
-      end
+    rescue ActiveRecord::RecordInvalid
+      false
     end
   end
 end
