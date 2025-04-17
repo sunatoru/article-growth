@@ -5,7 +5,7 @@ article-growth
 <br>技術を情報交換する場として新人をすぐに抜け出せるような情報交換の場を作りたいと思って作成しました。<br>さらに新人の頃からこういう記事の書き方を覚えて実際に記事を書くことにより
 仕事のアウトプットができることとホウレンソウがより上手になるのではと思い作成を決意しました。
 # URL
-https://article-growth.onrender.com
+https://article-growth.onrender.com(現在はデプロイしてません)
 # テスト用アカウント
 - Basic認証パスワード: teiruzu15
 - Basic認証ID: tanosan
