@@ -37,9 +37,9 @@ https://article-growth.onrender.com
 
 
 ## 実装した機能についての画像やGIFおよびその説明
-| TOP画面 |　ログイン画面 |
+|  TOP画面|　  ログイン画面 |
 | ---- | ---- |
-| [![Image from Gyazo](https://i.gyazo.com/ce351e9238b135f7f5c0f29981cd897e.gif)](https://gyazo.com/ce351e9238b135f7f5c0f29981cd897e) | [![Image from Gyazo](https://i.gyazo.com/5f5251d5069c726e1818a16153330cdb.gif)](https://gyazo.com/5f5251d5069c726e1818a16153330cdb) |
+| [![Image from Gyazo](https://i.gyazo.com/ce351e9238b135f7f5c0f29981cd897e.gif)](https://gyazo.com/ce351e9238b135f7f5c0f29981cd897e)  | [![Image from Gyazo](https://i.gyazo.com/5f5251d5069c726e1818a16153330cdb.gif)](https://gyazo.com/5f5251d5069c726e1818a16153330cdb) |
 | 登録せずに検索機能と記事詳細まで見ることが可能です。 | 新規登録はname,e-mail,passwordでの認証機能を実装しました。ログインはemail,passwordだけで認証します。 |
 
 
@@ -90,3 +90,9 @@ https://article-growth.onrender.com
 # 工夫したポイント
 JavaScriptを使用していいね機能を非同期化すること。後、ミニアプリを実際に作成してBootStrap5を導入してデザインを変化させたことです（同じ環境下で実装した人の記事を参考にしながら試して表示するために必要なgemを導入）。
 
+  </tr>
+  <tr>
+    <td style="text-align:center; padding:20px;">記事編集ボタンをmenuから押せば記事編集画面に行きいつでも記事を公開下書き記事保存で非公開にできます。</td>
+    <td style="text-align:center; padding:20px;">投稿者のみ記事を削除できます。</td>
+  </tr>
+</table>
