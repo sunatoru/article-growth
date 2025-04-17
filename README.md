@@ -64,6 +64,104 @@ https://article-growth.onrender.com
 
 
 
+## 実装した機能についての画像やGIFおよびその説明
+
+<table>
+  <tr>
+    <th>TOP画面</th>
+    <th>ログイン画面</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://gyazo.com/ce351e9238b135f7f5c0f29981cd897e">
+        <img src="https://i.gyazo.com/ce351e9238b135f7f5c0f29981cd897e.gif" alt="TOP画面" width="300" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://gyazo.com/5f5251d5069c726e1818a16153330cdb">
+        <img src="https://i.gyazo.com/5f5251d5069c726e1818a16153330cdb.gif" alt="ログイン画面" width="300" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>登録せずに検索機能と記事詳細まで見ることが可能です。</td>
+    <td>新規登録はname,e-mail,passwordでの認証機能を実装しました。ログインはemail,passwordだけで認証します。</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>記事保存機能</th>
+    <th>下書き記事保存機能</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://gyazo.com/ce351e9238b135f7f5c0f29981cd897e">
+        <img src="https://i.gyazo.com/ce351e9238b135f7f5c0f29981cd897e.gif" alt="記事保存機能" width="300" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://gyazo.com/13944f15321247c95f63d77fd477bab7">
+        <img src="https://i.gyazo.com/13944f15321247c95f63d77fd477bab7.gif" alt="下書き記事保存機能" width="300" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>記事保存後は全体に公開されます。</td>
+    <td>下書き記事保存機能になります。自分だけ見ることができて編集したい記事のtitle,name,更新日を押すと記事編集画面に遷移されます。</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>記事編集機能</th>
+    <th>記事削除機能</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://gyazo.com/78b6da050b3b47e5f395bec7ae5f88eb">
+        <img src="https://i.gyazo.com/78b6da050b3b47e5f395bec7ae5f88eb.gif" alt="記事編集機能" width="300" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://gyazo.com/bc6a1f9de63d1e37ffa65120b23efe18">
+        <img src="https://i.gyazo.com/bc6a1f9de63d1e37ffa65120b23efe18.gif" alt="記事削除機能" width="300" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>記事編集ボタンをmenuから押せば記事編集画面に行きいつでも記事を公開下書き記事保存で非公開にできます。</td>
+    <td>投稿者のみ記事を削除できます。</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>検索機能</th>
+    <th>いいね機能</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://gyazo.com/ebf5ddae2caef868ed361c1f70e60100">
+        <img src="https://i.gyazo.com/ebf5ddae2caef868ed361c1f70e60100.gif" alt="検索機能" width="300" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://gyazo.com/8b4f5829eb833cb201b0002cf7e1ce7f">
+        <img src="https://i.gyazo.com/8b4f5829eb833cb201b0002cf7e1ce7f.gif" alt="いいね機能" width="300" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>全てのユーザーが検索で部分一致する文字をsearchすると該当の記事を絞り画面に表示します。</td>
+    <td>投稿者以外の記事にログインユーザーのみいいねを押してそのいいねが数がわかるように表示するようにしました。</td>
+  </tr>
+</table>
+
+
+
+
+
 
 
 # データベース設計
